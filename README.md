@@ -9,6 +9,13 @@ Check some [prints](/prints)
 ### To run
 `npm start`
 
+Then open your browser `http://localhost:3000/`
+
+### Documentation
+`npm run styleguide`
+
+Then open your browser `http://localhost:6060/`
+
 ### Features
 
 * Add task

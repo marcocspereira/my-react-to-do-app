@@ -1,11 +1,3 @@
-Usage
-
-```jsx
-<Header currentItem={}
-        handleInput={}
-        addItem={} />
-```
-
 ### currentItem
 The added item param.
 
