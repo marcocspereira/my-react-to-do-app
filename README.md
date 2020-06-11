@@ -7,3 +7,8 @@ An exercise to practive React. This project was bootstrapped with [Create React 
 ### To run
 `npm start`
 
+### Features
+
+* Add task
+* Edit task
+* Remove task
