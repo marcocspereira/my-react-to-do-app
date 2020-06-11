@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from './Header';
+import { Header } from '../Header/Header';
 
 export class ToDo extends React.Component {
 
@@ -12,6 +12,8 @@ export class ToDo extends React.Component {
         key: ''
       }
     }
+    this.handleInput = this.handleInput.bind(this);
+    this.addItem = this.addItem.bind(this);
   }
 
   handleInput(e) {

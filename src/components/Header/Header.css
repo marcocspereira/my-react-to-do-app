@@ -8,11 +8,11 @@
   margin: 20px;
   font-size: 18px;
   border-radius: 10px;
-  color: #ffffff;
+  color: #161b21;
 }
 
 #to-do-form input::placeholder {
-  color: rgba(200, 200, 200, 0.5)
+  color: #f4a950;
 }
 
 #to-do-form input:focus , #to-do-form button:focus{
@@ -24,8 +24,8 @@
   width: 80px;
   border-radius: 5px;
   border: 0;
-  background-color: black;
+  background-color: #f4a950;
   cursor: pointer;
   font-weight: bolder;
-  color: #fff;
+  color: #161b21;
 }
