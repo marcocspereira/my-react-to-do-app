@@ -17,7 +17,14 @@ export class ToDo extends React.Component {
   }
 
   handleInput(e) {
-
+    // change state in other to handle the new valie
+    this.setState({
+      currentItem: {
+        text: e.target.value,
+        // key must be unique, so we use a timestamp
+        key: Date.now()
+      }
+    })
   }
 
   addItem(e) {
