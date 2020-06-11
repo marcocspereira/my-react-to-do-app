@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from '../Header/Header';
+import ListItems from '../ListItems/ListItems';
 
 export class ToDo extends React.Component {
 
@@ -11,6 +12,8 @@ export class ToDo extends React.Component {
     }
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
+    this.setUpdate = this.setUpdate.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   handleInput(e) {
@@ -39,11 +42,32 @@ export class ToDo extends React.Component {
     }
   }
 
+  setUpdate(text, key) {
+    const items = this.state.items;
+    items.map(item => {
+      if (item.key === key) {
+        item.text = text;
+      }
+    })
+    this.setState({
+      items: items
+    })
+  }
+
+  deleteItem(key) {
+    const filteredItems = this.state.items.filter(item => item.key !== key);
+    this.setState({
+      items: filteredItems
+    })
+  }
+
   render() {
     return (
       <div>
         <Header currentItem={this.state.currentItem}
           handleInput={this.handleInput} addItem={this.addItem} />
+        <ListItems items={this.state.items}
+          deleteItem={this.deleteItem} setUpdate={this.setUpdate} />
       </div>
     )
   }
