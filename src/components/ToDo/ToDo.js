@@ -7,7 +7,9 @@ export class ToDo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      /** Items to be displayed inside the list */
       items: [],
+      /** The most recent item */
       currentItem: { text: '', key: '' }
     }
     this.handleInput = this.handleInput.bind(this);
@@ -16,6 +18,10 @@ export class ToDo extends React.Component {
     this.deleteItem = this.deleteItem.bind(this);
   }
 
+  /**
+   * Allows to update the current item value
+   * @param {object} e input value to update the current item
+   */
   handleInput(e) {
     // change state in other to handle the new valie
     this.setState({
@@ -27,6 +33,10 @@ export class ToDo extends React.Component {
     })
   }
 
+  /**
+   * Add a new task to the to do list
+   * @param {object} e new item
+   */
   addItem(e) {
     // canceling the event of submit to avoid to submit the form
     e.preventDefault();
@@ -42,6 +52,11 @@ export class ToDo extends React.Component {
     }
   }
 
+  /**
+   * Allows to update the text of a given task
+   * @param {string} text the new text to update
+   * @param {object} key the key of the required task to be updated
+   */
   setUpdate(text, key) {
     const items = this.state.items;
     items.map(item => {
@@ -54,6 +69,10 @@ export class ToDo extends React.Component {
     })
   }
 
+  /**
+   * Allows to delete a given task from the to do list
+   * @param {object} key task key to delete
+   */
   deleteItem(key) {
     const filteredItems = this.state.items.filter(item => item.key !== key);
     this.setState({
