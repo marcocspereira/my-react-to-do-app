@@ -7,10 +7,7 @@ export class ToDo extends React.Component {
     super(props);
     this.state = {
       items: [],
-      currentItem: {
-        text: '',
-        key: ''
-      }
+      currentItem: { text: '', key: '' }
     }
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
@@ -28,7 +25,18 @@ export class ToDo extends React.Component {
   }
 
   addItem(e) {
-
+    // canceling the event of submit to avoid to submit the form
+    e.preventDefault();
+    // use state to get current item sinde handleInput already updates the state
+    const newItem = this.state.currentItem;
+    if (newItem.text !== '') {
+      // update items with currentItem and restart the current item
+      const newItems = [...this.state.items, newItem];
+      this.setState({
+        items: newItems,
+        currentItem: { text: '', key: '' }
+      })
+    }
   }
 
   render() {
