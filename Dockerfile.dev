@@ -1,0 +1,18 @@
+# Alpine Linux is much smaller than most distribution base images (~5MB)
+FROM node:alpine
+
+# Set working directory for the Docker container
+WORKDIR /app
+
+# Copy the package.json from React project to the Docker container
+COPY package.json /app
+
+# install dependencies
+RUN npm install
+
+# copy the rest of the app to the Docker container
+# copy command is executed in WORKDIR directory
+COPY . /app
+
+# start development server
+CMD [ "npm", "run", "start"]

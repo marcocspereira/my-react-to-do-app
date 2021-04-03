@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  # Define the alusape_client service so we can run it in an isolated environment
+  todo_app:
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 3000:3000
+    volumes:
+      - './:/app'
