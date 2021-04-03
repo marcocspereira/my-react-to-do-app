@@ -3,15 +3,14 @@ import { Header } from '../Header/Header';
 import ListItems from '../ListItems/ListItems';
 
 export class ToDo extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       /** Items to be displayed inside the list */
       items: [],
       /** The most recent item */
-      currentItem: { text: '', key: '' }
-    }
+      currentItem: { text: '', key: '' },
+    };
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
     this.setUpdate = this.setUpdate.bind(this);
@@ -28,9 +27,9 @@ export class ToDo extends React.Component {
       currentItem: {
         text: e.target.value,
         // key must be unique, so we use a timestamp
-        key: Date.now()
-      }
-    })
+        key: Date.now(),
+      },
+    });
   }
 
   /**
@@ -47,8 +46,8 @@ export class ToDo extends React.Component {
       const newItems = [...this.state.items, newItem];
       this.setState({
         items: newItems,
-        currentItem: { text: '', key: '' }
-      })
+        currentItem: { text: '', key: '' },
+      });
     }
   }
 
@@ -59,14 +58,15 @@ export class ToDo extends React.Component {
    */
   setUpdate(text, key) {
     const items = this.state.items;
-    items.map(item => {
+    items.map((item) => {
       if (item.key === key) {
         item.text = text;
       }
-    })
+      return null;
+    });
     this.setState({
-      items: items
-    })
+      items: items,
+    });
   }
 
   /**
@@ -74,20 +74,26 @@ export class ToDo extends React.Component {
    * @param {object} key task key to delete
    */
   deleteItem(key) {
-    const filteredItems = this.state.items.filter(item => item.key !== key);
+    const filteredItems = this.state.items.filter((item) => item.key !== key);
     this.setState({
-      items: filteredItems
-    })
+      items: filteredItems,
+    });
   }
 
   render() {
     return (
       <div>
-        <Header currentItem={this.state.currentItem}
-          handleInput={this.handleInput} addItem={this.addItem} />
-        <ListItems items={this.state.items}
-          deleteItem={this.deleteItem} setUpdate={this.setUpdate} />
+        <Header
+          currentItem={this.state.currentItem}
+          handleInput={this.handleInput}
+          addItem={this.addItem}
+        />
+        <ListItems
+          items={this.state.items}
+          deleteItem={this.deleteItem}
+          setUpdate={this.setUpdate}
+        />
       </div>
-    )
+    );
   }
 }
